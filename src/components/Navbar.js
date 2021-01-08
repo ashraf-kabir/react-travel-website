@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Button } from './Button';
 import { Link } from 'react-router-dom';
+import pdf from '../components/documents/ashraf-kabir-cv.pdf';
 import './Navbar.css';
 
 function Navbar() {
@@ -29,8 +30,8 @@ function Navbar() {
       <nav className='navbar'>
         <div className='navbar-container'>
           <Link to='/' className='navbar-logo' onClick={closeMobileMenu}>
-            TRAVEL
             <i class='fab fa-typo3' />
+            Ashraf
           </Link>
           <div className='menu-icon' onClick={handleClick}>
             <i className={click ? 'fas fa-times' : 'fas fa-bars'} />
@@ -41,36 +42,46 @@ function Navbar() {
                 Home
               </Link>
             </li>
+
             <li className='nav-item'>
-              <Link
-                to='/services'
+              <a
+                href='https://blog.ashrafkabir.com/'
+                target='_blank'
                 className='nav-links'
                 onClick={closeMobileMenu}
               >
-                Services
-              </Link>
+                Blog
+              </a>
             </li>
+
             <li className='nav-item'>
               <Link
-                to='/products'
+                to='/projects'
                 className='nav-links'
                 onClick={closeMobileMenu}
               >
-                Products
+                Projects
               </Link>
             </li>
 
-            <li>
-              <Link
-                to='/sign-up'
-                className='nav-links-mobile'
+            <li className='nav-item'>
+              <a
+                href={pdf}
+                target='_blank'
+                className='nav-links'
                 onClick={closeMobileMenu}
               >
-                Sign Up
-              </Link>
+                CV
+              </a>
+            </li>
+
+            <li className='nav-item'>
+              <a href='#' className='nav-links' onClick={closeMobileMenu}>
+                Contact
+              </a>
             </li>
           </ul>
-          {button && <Button buttonStyle='btn--outline'>SIGN UP</Button>}
+          {/* {button && <Button buttonStyle='btn--outline'>SIGN UP</Button>} */}
         </div>
       </nav>
     </>
